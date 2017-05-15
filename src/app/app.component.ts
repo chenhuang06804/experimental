@@ -34,14 +34,17 @@ export class AppComponent {
   openModalDlg() {
     this.dialogConf.disableClose = true;
 
-    this.dialogRef = this.dialog.open(DialogOneComponent, {disableClose: false});
+    this.dialogRef = this.dialog.open(DialogOneComponent, {disableClose: true});
     this.dialogRef.afterClosed().subscribe(result => {
+      console.log('ModalDlg closed: data ' + JSON.stringify(result));
     });
   }
   openModalLessDlg() {
     this.dialogConf.disableClose = false;
     this.dialogRef = this.dialog.open(DialogTwoComponent, {disableClose: false});
     this.dialogRef.afterClosed().subscribe(result => {
+            console.log('ModalLessDlg closed');
+
     });
   }
 }
